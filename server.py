@@ -30,6 +30,16 @@ TOOL_INPUT_SCHEMA = {
     "required": ["meeting_text"],
     "additionalProperties": False,
 }
+TOOL_OUTPUT_SCHEMA = {
+    "status": "success",
+    "meeting_date": "string or null",
+    "meeting_time": "string or null",
+    "location": "string or null",
+    "participants": ["string"],
+    "topic": "string or null",
+    "missing_fields": ["string"],
+    "source_text": "string",
+}
 TOOL_ANNOTATIONS = {
     "readOnlyHint": True,
     "destructiveHint": False,
@@ -318,6 +328,7 @@ def tool_definition():
         "name": TOOL_NAME,
         "description": TOOL_DESCRIPTION,
         "inputSchema": TOOL_INPUT_SCHEMA,
+        "outputSchema": TOOL_OUTPUT_SCHEMA,
         "annotations": TOOL_ANNOTATIONS,
     }
 
